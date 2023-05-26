@@ -1,6 +1,7 @@
 // URL
 const GITHUB_API_PROFILE_URL = "https://api.github.com/users/gopalloharnew";
 const GITHUB_API_REPOS_URL = "https://api.github.com/users/gopalloharnew/repos";
+export const GITHUB_PAGES_BASE_URL = "https://gopalloharnew.github.io/";
 
 // fetchData
 async function fetchData(url) {
@@ -16,8 +17,14 @@ async function fetchData(url) {
 
 // getRepos
 export async function getRepos() {
-  const profileData = await fetchData(GITHUB_API_PROFILE_URL);
-  const publicReposURL = `${GITHUB_API_REPOS_URL}?per_page=${profileData.public_repos}`;
-  let repos = await fetchData(publicReposURL);
+  let repos;
+
+  try {
+    const profileData = await fetchData(GITHUB_API_PROFILE_URL);
+    const publicReposURL = `${GITHUB_API_REPOS_URL}?per_page=${profileData.public_repos}`;
+    repos = await fetchData(publicReposURL);
+  } catch (error) {
+    console.log(error.message);
+  }
   return repos;
 }
