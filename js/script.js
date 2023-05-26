@@ -1,3 +1,4 @@
+import { getRepos } from "./getRepos.js";
 console.log("Projects - Gopal Lohar");
 
 // define variables and constants
@@ -14,5 +15,11 @@ function addSkeletons() {
   }
 }
 
+async function populateRepos() {
+  const repos = await getRepos();
+  console.log(repos[0]);
+}
+
 // Code Running Sequence
 addSkeletons();
+populateRepos();
