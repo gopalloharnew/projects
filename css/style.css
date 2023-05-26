@@ -11,6 +11,8 @@
   --bg-secondary: hsl(202, 40%, 98%);
   --text-primary: hsl(221, 31%, 19%);
   --text-secondary: hsl(220, 29%, 31%);
+  --shadow-color: hsla(219, 15%, 66%, 0.1);
+  --t: hsl(219, 15%, 50%);
   --font-primary: "Fira Sans", sans-serif;
 }
 
@@ -18,4 +20,9 @@ body {
   background-color: var(--bg-primary);
   color: var(--text-primary);
   font-family: var(--font-primary);
+}
+
+.repo-card-wraper {
+  width: min(100%, 1000px);
+  margin: 0 auto;
 }
