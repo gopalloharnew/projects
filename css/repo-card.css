@@ -23,7 +23,7 @@
 }
 
 .repo-link {
-  background-color: var(--t);
+  background-color: var(--accent-bg);
   color: var(--bg-secondary);
   text-decoration: none;
   font-weight: 500;

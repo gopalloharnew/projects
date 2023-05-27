@@ -4,7 +4,10 @@ console.log("Projects - Gopal Lohar");
 // define variables and constants
 const repoCardTemplate = document.querySelector(".repo-card-template");
 const repoCardWraper = document.querySelector(".repo-card-wraper");
+const searchInput = document.querySelector(".search-input");
 const numberOfSkeletons = 4;
+
+let repos;
 
 // addSkeletons
 function addSkeletons() {
@@ -34,15 +37,33 @@ function createRepoCard(repo) {
 function renderRepoCards(repos) {
   repoCardWraper.innerHTML = "";
   repos.forEach((repo) => {
-    repoCardWraper.append(createRepoCard(repo));
+    repo.repoCard = createRepoCard(repo).children[0];
+    repoCardWraper.append(repo.repoCard);
   });
 }
 
 async function populateRepos() {
-  const repos = await getRepos();
+  repos = await getRepos();
   renderRepoCards(repos);
 }
 
 // Code Running Sequence
 addSkeletons();
 populateRepos();
+searchInput.addEventListener("input", () => {
+  const searchQuery = searchInput.value;
+  const searchRegex = new RegExp(`(${searchQuery})`, "gi");
+  repos.forEach((repo) => {
+    if (searchRegex.test(repo.name) || searchRegex.test(repo.description)) {
+      repo.repoCard.classList.remove("hidden");
+      repo.repoCard.querySelector(".repo-title").innerHTML = repo.name.replace(
+        searchRegex,
+        "<mark>$1</mark>"
+      );
+      repo.repoCard.querySelector(".repo-description").innerHTML =
+        repo.description?.replace(searchRegex, "<mark>$1</mark>");
+    } else {
+      repo.repoCard.classList.add("hidden");
+    }
+  });
+});

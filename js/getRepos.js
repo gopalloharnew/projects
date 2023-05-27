@@ -21,7 +21,8 @@ export async function getRepos() {
 
   try {
     const profileData = await fetchData(GITHUB_API_PROFILE_URL);
-    const publicReposURL = `${GITHUB_API_REPOS_URL}?per_page=${profileData.public_repos}`;
+    // const publicReposURL = `${GITHUB_API_REPOS_URL}?per_page=${profileData.public_repos}`; // Todo: remove placeholder data
+    const publicReposURL = "../placeholder-data/data.json"; // placeholder
     repos = await fetchData(publicReposURL);
   } catch (error) {
     console.log(error.message);

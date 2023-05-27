@@ -1,0 +1,21 @@
+.search-container {
+  width: min(100%, 1000px);
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.search-input {
+  padding: 1rem;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  border: 2px solid var(--accent-bg-fade);
+  width: min(400px, 100%);
+  margin: auto;
+  border-radius: 0.25rem;
+  outline: transparent;
+}
+
+.search-input:focus-visible {
+  border-color: var(--accent-bg);
+}
