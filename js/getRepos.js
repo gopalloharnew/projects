@@ -15,6 +15,18 @@ async function fetchData(url) {
   }
 }
 
+// fix dates
+// Todo: repos -> repoArray
+// repo-title -> repo-name
+function fixDates(repos) {
+  return repos.map((repo) => {
+    repo.created_at = new Date(repo.created_at);
+    repo.updated_at = new Date(repo.updated_at);
+    repo.pushed_at = new Date(repo.pushed_at);
+    return repo;
+  });
+}
+
 // getRepos
 export async function getRepos() {
   let repos;
@@ -27,5 +39,6 @@ export async function getRepos() {
   } catch (error) {
     console.log(error.message);
   }
+  repos = fixDates(repos);
   return repos;
 }
