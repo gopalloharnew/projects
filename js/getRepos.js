@@ -16,8 +16,6 @@ async function fetchData(url) {
 }
 
 // fix dates
-// Todo: repos -> repoArray
-// repo-title -> repo-name
 function fixDates(repos) {
   return repos.map((repo) => {
     repo.created_at = new Date(repo.created_at);
@@ -33,8 +31,7 @@ export async function getRepos() {
 
   try {
     const profileData = await fetchData(GITHUB_API_PROFILE_URL);
-    // const publicReposURL = `${GITHUB_API_REPOS_URL}?per_page=${profileData.public_repos}`; // Todo: remove placeholder data
-    const publicReposURL = "../placeholder-data/data.json"; // placeholder
+    const publicReposURL = `${GITHUB_API_REPOS_URL}?per_page=${profileData.public_repos}`;
     repos = await fetchData(publicReposURL);
   } catch (error) {
     console.log(error.message);
