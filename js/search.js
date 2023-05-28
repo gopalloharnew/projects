@@ -1,6 +1,5 @@
 const searchInput = document.querySelector(".search-input");
 
-// Todo: how to escape regex characters
 function escapeRegexChars(string) {
   return string.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"); // Escape special characters
 }
