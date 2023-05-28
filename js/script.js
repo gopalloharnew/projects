@@ -3,7 +3,12 @@ import { getRepos } from "./getRepos.js";
 import { renderRepoCards } from "./repoCard.js";
 import { search } from "./search.js";
 
-console.log("Projects - Gopal Lohar"); // Todo: make it look sexy
+const consoleStyles = [
+  "font-size: 2rem",
+  "font-style: italic",
+  "padding: 0.5rem",
+];
+console.log("%cProjects - Gopal Lohar", consoleStyles.join(";"));
 
 // define variables and constants
 // dom
@@ -26,7 +31,6 @@ function addSkeletons(numberOfSkeletons) {
 function sortRepos(repos) {
   return repos.sort((repo1, repo2) => {
     return repo2.created_at - repo1.created_at;
-    return repo2.updated_at - repo1.updated_at; // Todo: check what's problem with quiz app
   });
 }
 

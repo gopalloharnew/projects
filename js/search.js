@@ -1,9 +1,14 @@
 const searchInput = document.querySelector(".search-input");
 
 // Todo: how to escape regex characters
+function escapeRegexChars(string) {
+  return string.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"); // Escape special characters
+}
+
 export function search(repos) {
   const searchQuery = searchInput.value;
-  const searchRegex = new RegExp(`(${searchQuery})`, "gi");
+  const escapedQuery = escapeRegexChars(searchQuery);
+  const searchRegex = new RegExp(`(${escapedQuery})`, "gi");
   repos.forEach((repo) => {
     if (searchRegex.test(repo.name) || searchRegex.test(repo.description)) {
       repo.repoCard.classList.remove("hidden");
