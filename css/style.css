@@ -14,9 +14,9 @@
   --text-primary: hsl(221, 31%, 19%);
   --text-secondary: hsl(220, 29%, 31%);
   --shadow-color: hsla(219, 15%, 66%, 0.1);
-  --accent-bg: hsl(219, 15%, 50%);
-  --accent-bg-fade: hsla(219, 15%, 50%, 0.5);
-  --font-primary: "Fira Sans", sans-serif;
+  --accent-bg: hsl(219, 15%, 40%);
+  --accent-bg-fade: hsla(219, 15%, 40%, 0.5);
+  --font-primary: "Segoe UI", Tahoma, Verdana, sans-serif;
 }
 
 body {
